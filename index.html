@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>ONE STOP FOR CONVERSIONS — All-in-one converter tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" onclick="showHome()"><span class="brand-mark">ID</span><span>ONE STOP FOR ALL CONVERSIONS</span></a>
+    
+    <nav class="nav-links">
+      <a onclick="goToSection('tools')">Tools</a><a onclick="goToSection('PDF')">PDF</a><a onclick="goToSection('Document')">Document</a><a onclick="goToSection('Image')">Image</a><a onclick="goToSection('GIF')">GIF</a><a onclick="goToSection('Video')">Video</a><a onclick="goToSection('Social-Media')">Social Media</a><a onclick="goToSection('AI-Tools')">AI Tools</a><a onclick="goToSection('Developer')">Developer</a><a class="nav-cta" onclick="goToSection('tools')">Start free</a>
+    </nav>
+    <button class="mobile-menu" onclick="toggleMobile()">Menu</button>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a onclick="showHome()">Home</a><a onclick="goToSection('tools')">Tools</a><a onclick="goToSection('PDF')">PDF</a><a onclick="goToSection('Document')">Document</a><a onclick="goToSection('Image')">Image</a><a onclick="goToSection('GIF')">GIF</a><a onclick="goToSection('Social-Media')">Social</a><a onclick="goToSection('Developer')">Developer</a>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span></span> All-in-one converter platform</div>
+        <h1>All your conversions in <span class="accent">one clean place.</span></h1>
+        <p class="hero-copy">Convert PDFs, images, videos, audio, documents, social media assets, and developer files with fast, secure, and easy-to-use online tools.</p>
+        <div class="search-shell">
+          <input id="search" placeholder="Search Word to PDF, QR Code, Remove Background..." oninput="renderTools()"/>
+          <button onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Search</button>
+        </div>
+        <div class="quick" id="quick"></div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top"><span class="pulse"></span> LIVE DASHBOARD</div>
+        <div class="stat-grid">
+          <div class="stat"><strong id="toolCount">0</strong><span>Total tools</span></div>
+          <div class="stat"><strong id="workingCount">0</strong><span>Working tools</span></div>
+          <div class="stat"><strong>Fast</strong><span>Clean UI</span></div>
+          <!-- <div class="stat"><strong>INTOP DIGITAL</strong><span>Intop Digital</span></div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="label">Popular tools</div><h2>Start with the most used tools.</h2></div>
+        <p>Search, browse, and open every converter from one organized dashboard.</p>
+      </div>
+      <div class="tools-grid" id="popularGrid"></div>
+    </div>
+  </section>
+
+  <div id="categorySections"></div>
+</main>
+
+<main id="toolPage" class="tool-page">
+  <div class="container">
+    <button class="back-btn" onclick="showHome()">← Back to all tools</button>
+    <div class="tool-layout">
+      <div class="panel">
+        <div class="label" id="toolCategory"></div>
+        <h2 id="toolTitle"></h2>
+        <p class="tool-desc" id="toolDesc"></p>
+        <div id="compliance" class="notice hidden">Only process or download content you own, have permission to use, or are legally allowed to use. This tool does not bypass private accounts, paywalls, DRM, login walls, or copyright restrictions.</div>
+        <form id="toolForm">
+          <div id="inputArea"></div>
+          <div class="options" id="optionsArea"></div>
+          <button class="process-btn" id="processBtn" type="submit">Process</button>
+          <div id="loading" class="loading hidden">Processing your file...</div>
+          <div id="resultArea"></div>
+        </form>
+      </div>
+      <aside class="panel side-panel">
+        <h3>Related tools</h3>
+        <div id="relatedTools"></div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <a class="brand"><span class="brand-mark">ID</span><span>ONE STOP FOR ALL CONVERSIONS</span></a>
+      <p>A clean all-in-one converter website for PDFs, images, video, audio, social media utilities, AI placeholders, and developer tools.</p>
+      <a href="https://intopdigital.com/" target="_blank"><div class="intop-card"><span class="intop-logo">ID</span><div><strong>Built by Intop Digital</strong><small> Websites, branding, automation, and digital growth.</small></div></div></a>
+    </div>
+    <div><h4>PDF</h4><a>Word to PDF</a><a>Merge PDF</a><a>Compress PDF</a></div>
+    <div><h4>Media</h4><a>Image Converter</a><a>MP4 to GIF</a><a>Extract Audio</a></div>
+    <div><h4>Developer</h4><a>JSON Formatter</a><a>QR Code</a><a>CSV to JSON</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 ONE STOP FOR ALL CONVERSIONS. All rights reserved.</span><a href="https://intopdigital.com/" target="_blank"><span>Built by Intop Digital</span></a></div>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
