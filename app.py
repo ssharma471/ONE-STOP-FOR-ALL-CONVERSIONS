@@ -129,6 +129,23 @@ async def api_tools():
 
 @app.get("/api/health")
 async def health():
+    libreoffice_status = False
+    libreoffice_path = None
+    libreoffice_error = None
+
+    try:
+        libreoffice_path = office_binary()
+        result = subprocess.run(
+            [libreoffice_path, "--version"],
+            capture_output=True,
+            text=True,
+            timeout=10
+        )
+        libreoffice_status = result.returncode == 0
+        libreoffice_error = result.stdout or result.stderr
+    except Exception as e:
+        libreoffice_error = str(e)
+
     return {
         "status": "ok",
         "tools": len(TOOLS),
@@ -138,6 +155,9 @@ async def health():
         "qrcode": bool(qrcode),
         "openpyxl": bool(Workbook),
         "ghostscript": bool(shutil.which("gs")),
+        "libreoffice": libreoffice_status,
+        "libreoffice_path": libreoffice_path,
+        "libreoffice_message": libreoffice_error,
     }
 
 
